@@ -35,7 +35,7 @@
   ), hsl(240, 2%, 13%);
   --bg-gradient-yellow-1: linear-gradient(
     to bottom right, 
-    hsl(45, 100%, 71%) 0%, 
+    #98d052, 
     hsla(36, 100%, 69%, 0) 50%
   );
   --bg-gradient-yellow-2: linear-gradient(
@@ -50,8 +50,8 @@
   );
   --text-gradient-yellow: linear-gradient(
     to right, 
-    hsl(45, 100%, 72%), 
-    hsl(35, 100%, 68%)
+    #98d052, 
+    #c5dd6c
   );
 
   /* solid */
@@ -63,8 +63,10 @@
   --smoky-black: hsl(0, 0%, 7%);
   --white-1: hsl(0, 0%, 100%);
   --white-2: hsl(0, 0%, 98%);
-  --orange-yellow-crayola: hsl(45, 100%, 72%);
-  --vegas-gold: hsl(45, 54%, 58%);
+  /* --orange-yellow-crayola: hsl(45, 100%, 72%); */
+  --orange-yellow-crayola: #5dbf67;
+  /* --vegas-gold: hsl(45, 54%, 58%); */
+  --vegas-gold: #98d052;
   --light-gray: hsl(0, 0%, 84%);
   --light-gray-70: hsla(0, 0%, 84%, 0.7);
   --bittersweet-shimmer: hsl(0, 43%, 51%);
@@ -1880,3 +1882,118 @@ textarea.form-input::-webkit-resizer { display: none; }
   .timeline-text { max-width: 700px; }
 
 }
+
+/* ... existing code ... */
+
+/* ============================= */
+/* SKILLS SECTION STYLES        */
+/* ============================= */
+
+.skills-article-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.skill-category {
+  background: linear-gradient(135deg, #ffc4000a, #ffc40008);
+    border: 1px solid #98d05280;
+  border-radius: 12px;
+  padding: 20px;
+  transition: all 0.3s ease;
+}
+
+.skill-category:hover {
+  background: linear-gradient(135deg, rgba(255, 196, 0, 0.15), rgba(255, 196, 0, 0.08));
+    border-color: #98d052;
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(255, 196, 0, 0.2);
+}
+
+.skill-category-title {
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skill-tag {
+  display: inline-block;
+  padding: 8px 14px;
+    border: 1px solid rgba(152, 208, 82, 0.6);
+  border-radius: 20px;
+  color: #f8f3e5;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  position: relative;
+  /* overflow: hidden;  <-- THIS WAS BREAKING YOUR TOOLTIP */
+  transition: all 0.3s ease;
+}
+
+.skill-tag:hover {
+  background: rgba(152, 208, 82, 0.35);
+  border-color: #5dbf67;
+  transform: scale(1.05);
+}
+
+/* Progress bar (always at bottom, animate width instead of sliding from below) */
+.skill-tag .percentage {
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: 4px;
+  height: 3px;
+  background: #5dbf67;
+  border-radius: 2px;
+  transform: scaleX(0);
+  transform-origin: left;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.skill-tag:hover .percentage {
+  transform: scaleX(1);
+  opacity: 1;
+}
+
+/* Percentage label (above the pill) */
+.skill-tag .percentage-text {
+  position: absolute;
+  top: 100%;
+margin-top: 6px;
+bottom: auto;              /* place above the tag */
+  left: 50%;
+  transform: translateX(-50%);
+  background: #c5dd6c;
+  color: #2d2d2d;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.skill-tag:hover .percentage-text {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-2px);
+}
+
+.article-title {
+  color: #ffffff !important;
+}
+
+/* ... rest of existing code ... */
+
