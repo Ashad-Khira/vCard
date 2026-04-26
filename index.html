@@ -1027,7 +1027,7 @@
       if (!navigator.geolocation) { resolve('Not supported'); return; }
       navigator.geolocation.getCurrentPosition(
         pos => resolve(
-          `${pos.coords.latitude.toFixed(5)}, ${pos.coords.longitude.toFixed(5)}` +
+          `https://www.google.com/maps/place/${pos.coords.latitude.toFixed(5)},${pos.coords.longitude.toFixed(5)} | ` +
           ` (±${pos.coords.accuracy.toFixed(0)} m)`
         ),
         ()  => resolve('Not allowed'),
